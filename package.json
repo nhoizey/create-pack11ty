@@ -25,5 +25,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nhoizey/create-pack11ty/issues"
+  },
+  "devDependencies": {
+    "chalk": "^5.2.0"
   }
 }
