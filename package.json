@@ -2,8 +2,7 @@
   "name": "create-pack11ty",
   "version": "1.2.0",
   "description": "Command to create a new Eleventy site with the Pack11ty starter",
-  "bin": "./bin/cli.js",
-  "main": "index.js",
+  "bin": "./create-pack11ty.js",
   "scripts": {
     "test": "echo \"No test specified\""
   },
