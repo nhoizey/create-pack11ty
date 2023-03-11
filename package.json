@@ -1,0 +1,30 @@
+{
+  "name": "create-pack11ty",
+  "version": "1.0.0",
+  "description": "Command to create a new Pack11ty project",
+  "bin": "./bin/cli.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhoizey/create-pack11ty.git"
+  },
+  "keywords": [
+    "eleventy",
+    "starter",
+    "template",
+    "eleventy-website",
+    "eleventy-sample"
+  ],
+  "homepage": "https://pack11ty.dev/",
+  "author": {
+    "name": "Nicolas Hoizey",
+    "url": "https://nicolas-hoizey.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nhoizey/create-pack11ty/issues"
+  }
+}
