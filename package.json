@@ -1,7 +1,7 @@
 {
   "name": "create-pack11ty",
   "version": "1.1.0",
-  "description": "Command to create a new Pack11ty project",
+  "description": "Command to create a new Eleventy site with the Pack11ty starter",
   "bin": "./bin/cli.js",
   "main": "index.js",
   "scripts": {
