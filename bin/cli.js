@@ -1,5 +1,15 @@
 #!/usr/bin/env node
 
+const currentNodeVersion = process.versions.node;
+const majorNodeVersion = currentNodeVersion.split(".")[0];
+
+if (majorNodeVersion < 16) {
+  console.error(`You are running Node ${currentNodeVersion}.
+"create pack11ty" requires Node 18 or higher.
+Please update your version of Node.`);
+  process.exit(1);
+}
+
 const { execSync } = require("child_process");
 
 const runCommand = (command) => {
