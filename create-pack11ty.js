@@ -20,8 +20,10 @@ const { execSync } = require("child_process");
 
 const folderName = process.argv[2];
 if (folderName === undefined) {
-  console.error(`${chalk.red(`Error: you must specify the target folder name:`)}
-npm create pack11ty@latest <my-project-folder>`);
+  console.error(`
+${chalk.red(`Error: you must specify the target folder name:`)}
+npm create pack11ty@latest <my-project-folder>
+`);
   process.exit(-1);
 }
 
@@ -33,7 +35,13 @@ const gitCheckoutCommand = `git clone --depth 1 https://github.com/nhoizey/pack1
 try {
   execSync(`${gitCheckoutCommand}`, { stdio: "inherit" });
 } catch (e) {
-  console.error(chalk.red(`Failed to check out pack11ty`), e);
+  console.error(
+    chalk.red(
+      `
+Failed to check out pack11ty`,
+      e
+    )
+  );
   process.exit(-1);
 }
 
@@ -45,7 +53,13 @@ const installDepsCommand = `cd ${folderName} && npm install`;
 try {
   execSync(`${installDepsCommand}`, { stdio: "inherit" });
 } catch (e) {
-  console.error(chalk.red(`Failed to install dependencies`), e);
+  console.error(
+    chalk.red(
+      `
+Failed to install dependencies`,
+      e
+    )
+  );
   process.exit(-1);
 }
 
