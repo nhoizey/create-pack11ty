@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const chalk = require("chalk");
+const packageJson = require("./package.json");
 
 const currentNodeVersion = process.versions.node;
 const majorNodeVersion = currentNodeVersion.split(".")[0];
@@ -17,13 +18,18 @@ Please update your version of Node.`
 
 const { execSync } = require("child_process");
 
-const repoName = process.argv[2];
+const folderName = process.argv[2];
+if (folderName === undefined) {
+  console.error(`${chalk.red(`Error: you must specify the target folder name:`)}
+npm create pack11ty@latest <my-project-folder>`);
+  process.exit(-1);
+}
 
 console.log(
   chalk.blue(`
-Cloning the repository with name ${repoName}`)
+Cloning the repository with name ${folderName}`)
 );
-const gitCheckoutCommand = `git clone --depth 1 https://github.com/nhoizey/pack11ty ${repoName}`;
+const gitCheckoutCommand = `git clone --depth 1 https://github.com/nhoizey/pack11ty ${folderName}`;
 try {
   execSync(`${gitCheckoutCommand}`, { stdio: "inherit" });
 } catch (e) {
@@ -33,9 +39,9 @@ try {
 
 console.log(
   chalk.blue(`
-Installing dependencies for ${repoName}`)
+Installing dependencies for ${folderName}`)
 );
-const installDepsCommand = `cd ${repoName} && npm install`;
+const installDepsCommand = `cd ${folderName} && npm install`;
 try {
   execSync(`${installDepsCommand}`, { stdio: "inherit" });
 } catch (e) {
@@ -48,6 +54,6 @@ console.log(
 ${chalk.green(`Congratulations, you are ready!`)}
 
 ${chalk.blue(`Execute the following commands to start:`)}
-cd ${repoName}
+cd ${folderName}
 npm start`
 );
