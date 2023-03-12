@@ -17,16 +17,6 @@ Please update your version of Node.`
 
 const { execSync } = require("child_process");
 
-const runCommand = (command) => {
-  try {
-    execSync(`${command}`, { stdio: "inherit" });
-  } catch (e) {
-    console.error(chalk.red(`Failed to execute ${command}`), e);
-    return false;
-  }
-  return true;
-};
-
 const repoName = process.argv[2];
 
 console.log(chalk.blue(`Cloning the repository with name ${repoName}`));
