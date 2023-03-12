@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
 const chalk = require("chalk");
+const fs = require("fs");
+const { execSync } = require("child_process");
+
 const packageJson = require("./package.json");
 
 const currentNodeVersion = process.versions.node;
@@ -16,13 +19,18 @@ Please update your version of Node.`
   process.exit(1);
 }
 
-const { execSync } = require("child_process");
-
 const folderName = process.argv[2];
 if (folderName === undefined) {
   console.error(`
 ${chalk.red(`Error: you must specify the target folder name:`)}
 npm create pack11ty@latest <my-project-folder>
+`);
+  process.exit(-1);
+}
+
+if (fs.existsSync(folderName)) {
+  console.error(`
+${chalk.red(`Error: folder ${folderName} already exists.`)}
 `);
   process.exit(-1);
 }
