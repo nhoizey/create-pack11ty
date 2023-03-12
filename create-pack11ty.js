@@ -19,7 +19,10 @@ const { execSync } = require("child_process");
 
 const repoName = process.argv[2];
 
-console.log(chalk.blue(`Cloning the repository with name ${repoName}`));
+console.log(
+  chalk.blue(`
+Cloning the repository with name ${repoName}`)
+);
 const gitCheckoutCommand = `git clone --depth 1 https://github.com/nhoizey/pack11ty ${repoName}`;
 try {
   execSync(`${gitCheckoutCommand}`, { stdio: "inherit" });
@@ -28,7 +31,10 @@ try {
   process.exit(-1);
 }
 
-console.log(chalk.blue(`Installing dependencies for ${repoName}`));
+console.log(
+  chalk.blue(`
+Installing dependencies for ${repoName}`)
+);
 const installDepsCommand = `cd ${repoName} && npm install`;
 try {
   execSync(`${installDepsCommand}`, { stdio: "inherit" });
