@@ -27,6 +27,6 @@
     "url": "https://github.com/nhoizey/create-pack11ty/issues"
   },
   "dependencies": {
-    "chalk": "^5.2.0"
+    "chalk": "^4.1.2"
   }
 }
