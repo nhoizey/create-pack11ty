@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/nhoizey/create-pack11ty/issues"
   },
-  "devDependencies": {
+  "dependencies": {
     "chalk": "^5.2.0"
   }
 }
