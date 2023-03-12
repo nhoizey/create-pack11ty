@@ -1,6 +1,6 @@
 {
   "name": "create-pack11ty",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Command to create a new Eleventy site with the Pack11ty starter",
   "bin": "./create-pack11ty.js",
   "scripts": {
