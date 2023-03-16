@@ -4,7 +4,8 @@
   "description": "Command to create a new Eleventy site with the Pack11ty starter",
   "bin": "./create-pack11ty.js",
   "scripts": {
-    "test": "echo \"No test specified\""
+    "test": "echo \"No test specified yet\"",
+    "release": "np"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
   },
   "dependencies": {
     "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "np": "^7.6.3"
   }
 }
