@@ -15,3 +15,4 @@ concurrency:
 jobs:
   update-dependencies:
     uses: nhoizey/automations/.github/workflows/update-dependencies.yml@main
+    secrets: inherit
