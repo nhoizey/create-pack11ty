@@ -4,7 +4,8 @@
   "description": "Command to create a new Eleventy site with the Pack11ty starter",
   "bin": "./create-pack11ty.js",
   "scripts": {
-    "test": "echo \"No test specified yet\"",
+    "test": "echo \"No test script yet\"",
+    "build": "echo \"No build script yet\"",
     "release": "np"
   },
   "repository": {
