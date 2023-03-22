@@ -34,6 +34,9 @@ jobs:
       - name: 🔍 Check for outdated packages
         id: vars
         run: |
+          # set -x
+          # set -e
+
           OUTDATED=$(npm outdated || true)
 
           if [[ -z "$OUTDATED" ]]; then
@@ -41,13 +44,13 @@ jobs:
             echo "updatable=false" >> "${GITHUB_OUTPUT}"
           else
             HEADER=$(echo "$OUTDATED" | grep "Package")
-            COMPATIBLE=$(echo "$OUTDATED" | awk '$2!=$3' | grep -v "Package")
+            COMPATIBLE=$(echo "$OUTDATED" | awk '$2!=$3' | grep -v "Package" || true)
             if [[ -z "$COMPATIBLE" ]]; then
               COMPATIBLE_COUNT=0
             else
               COMPATIBLE_COUNT=$(($(echo "$COMPATIBLE" | wc -l) + 0))
             fi
-            NOT_COMPATIBLE=$(echo "$OUTDATED" | awk '$2==$3')
+            NOT_COMPATIBLE=$(echo "$OUTDATED" | awk '$2==$3' || true)
             if [[ -z "$NOT_COMPATIBLE" ]]; then
               NOT_COMPATIBLE_COUNT=0
             else
@@ -102,14 +105,12 @@ jobs:
       # - name: 🏗️ Build
       #   if: ${{ steps.vars.outputs.updatable }}
       #   run: npm run build
-      #   env:
-      #     NODE_ENV: production
 
       - name: 🔀 Commit and create PR
         if: ${{ steps.vars.outputs.updatable }}
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.PAT }}
+          # token: ${{ secrets.PAT }}
           title: "build(deps): update NPM packages [skip ci]"
           body: |
             # Updating dependencies
